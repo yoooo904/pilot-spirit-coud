@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Pretendard:wght@100;200;300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Spirit Cloud Theme - Ethereal Dark */
+  --background: 0 0% 0%; /* Pure Black */
+  --foreground: 0 0% 90%; /* Soft White */
+  
+  --primary: 0 0% 100%; /* White */
+  --primary-foreground: 0 0% 0%; /* Black */
+  
+  --secondary: 0 0% 10%; /* Dark Gray */
+  --secondary-foreground: 0 0% 90%;
+  
+  --muted: 0 0% 20%;
+  --muted-foreground: 0 0% 60%;
+  
+  --accent: 0 0% 15%;
+  --accent-foreground: 0 0% 100%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --ring: 0 0% 80%;
+  
+  --radius: 0.5rem;
+
+  --spirit-yellow: 50 100% 95%; /* Light glowing yellow */
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Pretendard', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-normal tracking-wider;
+  }
+
+  /* Custom Scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-white/20;
+  }
+}
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+}
